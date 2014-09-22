@@ -1,0 +1,12 @@
+rootProject.name = 'jdk8'
+
+include 'dates'
+
+include 'streams'
+
+include 'presentation'
+
+include 'java7'
+
+include 'other'
+
