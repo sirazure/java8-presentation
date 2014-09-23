@@ -1,11 +1,11 @@
 package com.sirazure.showcase;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.temporal.ChronoUnit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LocalDatesApp {
     private static Logger logger = LoggerFactory.getLogger(LocalDatesApp.class);
@@ -23,6 +23,9 @@ public class LocalDatesApp {
         LocalDate two = LocalDate.of(2014, 9, 23);
 
         logger.info("equality :" + one.equals(two));
+
+        System.out.println(one.plus(1, ChronoUnit.CENTURIES));
+
 
 
     }

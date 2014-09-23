@@ -1,12 +1,10 @@
 package com.sirazure.showcase;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LocalDateTimesApp {
     private static Logger logger = LoggerFactory.getLogger(LocalDateTimesApp.class);
@@ -28,7 +26,6 @@ public class LocalDateTimesApp {
         LocalDateTime three = LocalDateTime.of(2014, 9, 23, 10, 11, 12, 234000000);
         logger.info(three.toString());
 
-        LocalDateTime old = LocalDateTime.from(new Date().toInstant());
 
     }
 
