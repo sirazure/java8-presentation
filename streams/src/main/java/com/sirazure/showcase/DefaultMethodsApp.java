@@ -12,6 +12,8 @@ public class DefaultMethodsApp {
         new Plane().fly();
         new GermanUbot().swimm();
         new RoboBat().fly();
+
+        FlyingObject.fallDown();
     }
 
     static class Bat implements FlyingAnimal {}

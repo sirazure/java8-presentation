@@ -2,6 +2,7 @@ package com.sirazure.showcase;
 
 
 import com.sirazure.showcase.domain.Person;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,18 +21,29 @@ public class StreamsApp {
                 new Person("Amy", "Flowers", 43));
 
 
-        oldFilter(people);
+        //oldFilter(people);
 
         people.stream()
                 .filter(p -> p.getFirstName().length() == 3)
-                .forEach(System.out::println);
+                .forEach(p -> logger.info(p.toString()));
 
 
-        oldCollecting(people);
+        //oldCollecting(people);
 
         people.stream()
                 .collect(Collectors.groupingBy(Person::getAge))
-                .forEach((key, value) -> System.out.println("age :" + key + " have/has: " + value ));
+                .forEach((key, value) -> logger.info("age :" + key + " have/has: " + value ));
+
+        int maxAge = people.stream()
+                .map(Person::getAge)
+                .reduce(0, (first, second) -> first > second ? first : second);
+        logger.info("max age: " + maxAge);
+
+        String names = people.stream().map(Person::getFirstName).collect(Collectors.joining(","));
+        logger.info(names);
+
+        double averageAge = people.stream().collect(Collectors.averagingInt(Person::getAge));
+        logger.info("average age : " + averageAge);
 
 
 

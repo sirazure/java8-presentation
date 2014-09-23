@@ -12,16 +12,18 @@ public class OptionalApp {
     public static void main(String[] args) {
 
 
-        dizzyMethod().ifPresent(System.out::println);
+        dizzyMethod().ifPresent(val -> logger.info(val.toString()));
 
         Integer old = oldMethod();
         if (old != null && old > 1) {
-            System.out.print(old + 1);
+            logger.info(String.valueOf(old + 1));
         }
 
         dizzyMethod()
                 .filter(x -> x > 1)
-                .ifPresent(x -> System.out.print(x + 1));
+                .ifPresent(x -> logger.info(String.valueOf(x + 1)));
+
+        logger.info(String.valueOf(dizzyMethod().get()));
 
     }
 
