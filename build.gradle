@@ -4,6 +4,19 @@ repositories {
     mavenCentral()
 }
 
+//allprojects {
+//	tasks.withType(JavaCompile).all { JavaCompile compile ->
+//		compile.options.debug = true
+//		compile.options.compilerArgs = [
+//				'-version',
+//				'-implicit:class',
+//				'-processor', 'org.checkerframework.checker.nullness.NullnessChecker'
+//		]
+//		options.fork = true
+//		options.forkOptions.executable = "/opt/checker/checker/bin/javac"
+//	}
+//}
+
 subprojects {
     apply plugin: "java"
     sourceCompatibility = 1.8
@@ -11,7 +24,9 @@ subprojects {
     repositories {
         mavenCentral()
     }
+
     dependencies {
+		compile group: 'org.checkerframework', name: 'checker-qual', version: '1.8.5'
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
         compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.0.+'
 		compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
